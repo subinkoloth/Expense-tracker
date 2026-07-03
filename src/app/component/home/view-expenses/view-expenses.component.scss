@@ -1,0 +1,131 @@
+.main{
+    padding: 24px;
+    width: 100%;
+    height: auto;
+}
+
+/* Tighten card margins */
+mat-card{
+    margin: 0;
+}
+
+.metric-card{
+    padding: 8px 0;
+}
+
+/* Metrics: 4 columns on desktop, wrap on smaller screens */
+.metrics-grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.metric{ grid-column: span 3; }
+
+/* Summary row: 2 columns */
+.summary-grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+}
+.summary-item{ grid-column: span 6; }
+
+.details{ margin-top: 24px; }
+
+mat-card-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.icons{ font-size: 25px; font-weight: bold; }
+
+.tableContent{
+    overflow:hidden;
+    position: relative;
+    display: contents;
+}
+
+.matContnet:hover{
+    transform: scale(1.03);
+    transition: .25s ease;
+}
+.front{ font-family: cursive; color: grey; }
+.front1{ font-size: 24px; font-family: cursive; font-weight: bold; }
+
+table { width: 100%; overflow: hidden; }
+.table-container{ max-width: 100%; overflow-x: auto; }
+
+.btn-pie{ background-color: transparent; text-decoration: none; border: none; }
+.btn-pie :hover{ transition: .25s; cursor: pointer; }
+
+.btns{
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    z-index: 100;
+}
+
+.thumb-wrap{ display:flex; justify-content:center; padding: 16px 0; }
+.thumb-btn{ background: transparent; border: none; padding: 0; }
+.chart-thumb{ width: 180px; height: 120px; border-radius: 12px; display:flex; align-items:center; justify-content:center; color: white; box-shadow: var(--shadow-md); transition: transform .2s ease, box-shadow .2s ease; border: 1px solid var(--border-color); }
+.chart-thumb mat-icon{ font-size: 48px; height: 48px; width: 48px; }
+.chart-thumb:hover{ transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+/* Match dashboard theme */
+.chart-thumb-pie{ background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); }
+.chart-thumb-bar{ background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark)); }
+
+/* Ensure summary cards are equal size */
+.summary-grid{ display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+.summary-item{ grid-column: span 6; }
+.summary-item mat-card{ height: 260px; display: flex; flex-direction: column; }
+.summary-item .mat-card-title{ min-height: 32px; }
+.summary-item .mat-card-subtitle{ min-height: 28px; }
+.summary-item .mat-card-content{ flex: 1; display: flex; align-items: center; justify-content: center; padding: 0; }
+
+/* Detail Summary heading style */
+.details mat-card-title {
+    color: var(--primary-dark) !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+/* Detail Summary table header cells (Angular Material legacy and MDC) */
+.details .mat-header-cell,
+:host ::ng-deep .details .mat-mdc-header-cell,
+:host ::ng-deep .details .mat-mdc-header-row th {
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem;
+   
+}
+
+/* Make Detail Summary card white with dark text */
+.details mat-card {
+    background-color: #313131 !important;
+    color: #23272f !important;
+    box-shadow: 0 2px 12px 0 rgba(44,62,80,0.08);
+    border-radius: 12px;
+}
+:host ::ng-deep .details .mat-mdc-cell,
+:host ::ng-deep .details .mat-cell {
+    color: #23272f !important;
+    background-color: #dadccf !important;
+    font-size: 1rem;
+}
+/* Table row hover effect for better UX */
+:host ::ng-deep .details .mat-row:hover,
+:host ::ng-deep .details .mat-mdc-row:hover {
+    background-color: #e3e7ef !important;
+}
+
+/* Responsive */
+@media (max-width: 1024px){
+    .metric{ grid-column: span 6; }
+    .summary-item{ grid-column: span 12; }
+    .summary-item mat-card{ height: auto; }
+}
+@media (max-width: 600px){
+    .main{ padding: 16px; }
+    .metric{ grid-column: span 12; }
+}

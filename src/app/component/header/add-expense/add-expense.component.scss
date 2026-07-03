@@ -1,0 +1,41 @@
+.main-class{
+    margin: 0px 24px;
+    padding-top: 24px;
+}
+.loaderRelay {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2; /* Ensure the loader is on top */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-card { margin: 0; }
+mat-card-content { padding-top: 8px !important; }
+
+.form-grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+}
+.field{ grid-column: span 6; }
+.field-full{ grid-column: span 12; }
+
+/* Ensure all fields take full width */
+:host ::ng-deep mat-form-field { width: 100% !important; }
+
+/* Comment field height */
+:host ::ng-deep textarea[matInput] { min-height: 96px; }
+
+/* Actions spacing */
+:host ::ng-deep mat-card-actions { padding: 8px 0 0 0 !important; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .field{ grid-column: span 12; }
+}

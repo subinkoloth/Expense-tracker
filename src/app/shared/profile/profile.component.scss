@@ -1,0 +1,154 @@
+/** Compact overall card spacing **/
+:host ::ng-deep mat-card {
+    padding: 12px 16px !important;
+}
+
+:host ::ng-deep mat-card-content {
+    padding: 8px 0 !important;
+}
+
+:host ::ng-deep mat-card-actions {
+    padding-top: 8px !important;
+}
+
+/* Remove unused divider space */
+.liner {
+    display: none;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 6px;
+    margin-bottom: 8px;
+    /* add a small bottom space before name row */
+}
+
+.main img {
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+}
+
+.main img:hover {
+    transform: scale(1.05);
+    transition: .25s ease;
+}
+
+.main p {
+    padding-top: 4px;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Header */
+mat-card-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.example-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 6px;
+}
+
+/* Normalize Bootstrap row spacing inside dialog */
+:host ::ng-deep .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+:host ::ng-deep mat-card-content .row {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+/* Profile field grid */
+.profile-input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 12px 0 16px 0;
+}
+
+.profile-field-item {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-surface, #f8fafc);
+    border: 1px solid var(--border-color, #e2e8f0);
+    padding: 10px 14px;
+    border-radius: 8px;
+}
+
+.profile-field-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted, #64748b);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    text-align: left;
+}
+
+.profile-field-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary, #0f172a);
+    text-align: left;
+}
+
+.profile-field-edit-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+@media (max-width: 576px) {
+    .profile-input-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+/* Stats line-up */
+.mains {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 8px;
+    padding: 8px 0;
+    /* reduce vertical padding */
+}
+
+.mains .col {
+    grid-column: span 4;
+}
+
+.mains .col p {
+    text-align: center;
+    font-family: inherit;
+    margin: 2px 0;
+}
+
+.mains .col p:first-child {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.mains .col p:last-child {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+@media (max-width: 900px) {
+    .mains .col {
+        grid-column: span 12;
+    }
+}

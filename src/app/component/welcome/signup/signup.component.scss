@@ -1,0 +1,31 @@
+.myimage{
+    padding: 16px 0;
+}
+.myimage img{
+    height: auto;
+    width: 100%;
+    border-radius: 8px;
+}
+.container-fluid{
+    padding: 24px;
+    background-color: var(--bg-primary);
+}
+.inputs mat-form-field{
+    width: 100%;
+}
+.paragraph{
+    font-size: 22px;
+    font-weight: 700;
+    font-family: inherit;
+    text-align: center;
+    color: var(--text-primary);
+}
+.line{
+    height: 2px;
+    margin: 16px 0 24px 0;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+.singUpBtn{
+    text-align: center;
+    margin-top: 12px;
+}

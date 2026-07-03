@@ -1,0 +1,47 @@
+<mat-drawer-container class="example-container" hasBackdrop="True" autosize style="height: 100vh">
+  <mat-drawer style="height: 100%" #drawer class="example-sidenav sidebar-nav" mode="over">
+    <h2 class="sidebar-title">
+      Expense Tracker
+    </h2>
+    <div class="sidebar-menu">
+      <div class="sidebar-item" (click)="openDialog()">
+        <button mat-raised-button class="btn btn-primary">
+          <mat-icon>perm_identity</mat-icon>Profile
+        </button>
+      </div>
+      <div class="sidebar-item" (click)="onView()">
+        <button mat-raised-button class="btn btn-secondary">
+          <mat-icon>equalizer</mat-icon>View Expenses
+        </button>
+      </div>
+      <div class="sidebar-item" (click)="onLogout()">
+        <button mat-raised-button class="btn btn-outline">
+          <mat-icon>logout</mat-icon>Logout
+        </button>
+      </div>
+    </div>
+  </mat-drawer>
+  <div>
+    <mat-toolbar class="header-container header-toolbar">
+      <button
+        mat-icon-button
+        class="nav-button"
+        (click)="drawer.toggle()"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>list</mat-icon>
+      </button>
+      <span class="header-title">Expense Tracker</span>
+      <span class="example-spacer"></span>
+      <button mat-raised-button class="btn btn-outline" (click)="onLogout()">
+        <mat-icon>logout</mat-icon>Logout
+      </button>
+    </mat-toolbar>
+  </div>
+  <div *ngIf="isLoading">
+    <app-loader></app-loader>
+  </div>
+  <div *ngIf="!isLoading">
+    <app-dashboard></app-dashboard>
+  </div>
+</mat-drawer-container>

@@ -1,0 +1,105 @@
+
+<!-- loading -->
+
+<div *ngIf="LoginContinue">
+  <!-- Shows the loader component if LoginContinue is true -->
+  <app-welcome-loader [msg]="msg"></app-welcome-loader>
+</div>
+
+<div class="page">
+  <div class="content">
+    <h1 class="brand">Expense Tracker</h1>
+    <p class="tagline">A clean, effortless way to understand your daily spending.</p>
+  </div>
+  <div class="line"></div>
+  
+  <div class="container">
+    <div class="login-header">
+      <p class="loginp">Login here</p>
+    </div>
+    <!-- login  -->
+
+    <div class="forms">
+      <form [formGroup]="loginForm">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Enter Registered Email</mat-label>
+            <input
+              matInput
+              placeholder="abc@gmail.com"
+              type="email"
+              formControlName="gmail"
+            />
+            <mat-error
+              *ngIf="
+                loginForm.get('gmail')?.errors &&
+                loginForm.get('gmail')?.hasError('required') &&
+                loginForm.get('gmail')?.touched
+              "
+              style="color: red"
+            >
+              Email Address is required
+            </mat-error>
+            <mat-error
+              *ngIf="
+                loginForm.get('gmail')?.errors &&
+                loginForm.get('gmail')?.hasError('email') &&
+                loginForm.get('gmail')?.touched
+              "
+              style="color: red"
+            >
+              Email Address is invalid
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div style="padding-top: 5px">
+          <mat-form-field appearance="outline">
+            <mat-label>Enter Password</mat-label>
+            <input
+              matInput
+              placeholder=""
+              type="password"
+              formControlName="password"
+            />
+            <mat-error
+              *ngIf="
+                loginForm.get('password')?.errors &&
+                loginForm.get('password')?.hasError('required') &&
+                loginForm.get('password')?.touched
+              "
+            >
+              Password is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div style="text-align: center" class="btns">
+          <button
+            *ngIf="!LoginContinue"
+            mat-raised-button
+            type="submit"
+            color="accent"
+            (click)="onLogin('default')"
+          >
+            <mat-icon>login</mat-icon>Login
+          </button>
+          <button
+            *ngIf="LoginContinue"
+            class="btn btn-success"
+            type="button"
+            disabled
+          >
+            <span
+              class="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            Loading...
+          </button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="LoginContinue" style="margin-top: 10px">
+      <p class="wait">Please Wait!! Fetching Your Account Details</p>
+    </div>
+  </div>
+</div>

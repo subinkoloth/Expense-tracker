@@ -1,0 +1,100 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      <p>Add Expense Category <mat-icon>note_add</mat-icon></p>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-subtitle style="display: flex; padding: 0 16px;">
+    Add/Remove Expense Categories
+  </mat-card-subtitle>
+
+  <!-- Loading Spinner -->
+  <mat-card-content *ngIf="CategoryLoad && !isEdit"
+    style="padding-top: 15px; display: flex; justify-content: center; align-items: center;">
+    <div class="spinner-grow text-danger" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status" style="margin: 0 5px;">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </mat-card-content>
+
+  <!-- View Mode -->
+  <mat-card-content *ngIf="!CategoryLoad && !isEdit" style="padding-top: 15px;">
+    <mat-form-field appearance="outline" class="example-form-field">
+      <mat-label>Available Expense Categories</mat-label>
+      <mat-chip-grid #chipGrid aria-label="Enter New Category">
+        <!-- Existing Keywords -->
+        <mat-chip-row *ngFor="let keyword of keywords">
+          {{ keyword }}
+        </mat-chip-row>
+
+        <!-- Newly Added Keywords -->
+        <mat-chip-row *ngFor="let keyword of newKeywords" (removed)="removeKeyword(keyword)">
+          {{ keyword }}
+          <button matChipRemove aria-label="'remove ' + keyword">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+      </mat-chip-grid>
+
+      <input type="text" placeholder="Press Enter to add..." [matChipInputFor]="chipGrid"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
+        (matChipInputTokenEnd)="add($event)" />
+    </mat-form-field>
+  </mat-card-content>
+
+  <!-- Edit Mode -->
+  <mat-card-content *ngIf="!CategoryLoad && isEdit" style="padding-top: 15px;">
+    <mat-form-field appearance="outline" class="example-form-field">
+      <mat-label>Available Expense Categories</mat-label>
+      <mat-chip-grid #chipGrid aria-label="Edit Categories">
+        <mat-chip-row *ngFor="let keyword of keywords" [removable]="keyword !== 'Unassigned'"
+          (removed)="removeKeywordEdit(keyword)">
+          {{ keyword }}
+          <button *ngIf="keyword !== 'Unassigned'" matChipRemove aria-label="'remove ' + keyword">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+      </mat-chip-grid>
+
+      <input type="text" placeholder="Press Enter to add..." [matChipInputFor]="chipGrid"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
+        (matChipInputTokenEnd)="addEdit($event)" />
+    </mat-form-field>
+  </mat-card-content>
+
+  <!-- Action Buttons -->
+  <mat-card-actions align="end">
+    <!-- Edit -->
+    <button mat-icon-button matTooltip="Edit Categories" [disabled]="isEdit" (click)="onEditCategories()">
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    <!-- Reset -->
+    <button *ngIf="!isEdit" mat-raised-button (click)="onReset()">
+      <mat-icon>autorenew</mat-icon> Reset
+    </button>
+
+    <!-- Save New -->
+    <button *ngIf="!isSaving && !isEdit" mat-raised-button color="primary" (click)="onSave()"
+      [disabled]="newKeywords.length === 0">
+      <mat-icon>save</mat-icon> Save
+    </button>
+
+    <!-- Save Edit -->
+    <button *ngIf="isEdit && !isSaving" mat-raised-button color="accent" (click)="onSaveEditCategories()">
+      <mat-icon>save</mat-icon> Save
+    </button>
+
+    <!-- Saving Spinner -->
+    <button *ngIf="isSaving" mat-raised-button color="success" disabled>
+      <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+      Saving...
+    </button>
+  </mat-card-actions>
+</mat-card>

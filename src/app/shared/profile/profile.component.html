@@ -1,0 +1,62 @@
+<div>
+  <mat-card class="example-card">
+    <mat-card-header class="example-header">
+      <mat-card-title>
+        User Information <mat-icon>verified_user</mat-icon>
+      </mat-card-title>
+      <button mat-raised-button color="primary" (click)="toggleEditOrSave()" [disabled]="!editable"
+        matTooltip="{{ isEdit ? 'Done' : 'Edit' }}">
+        <mat-icon>{{ isEdit ? 'done' : 'edit' }}</mat-icon>{{ isEdit ? 'Done' : 'Edit' }}
+      </button>
+    </mat-card-header>
+    <mat-progress-bar *ngIf="isProcess" mode="indeterminate"></mat-progress-bar>
+    <mat-card-content *ngIf="!isProcess">
+      <div class="liner">
+        <p></p>
+      </div>
+      <div class="main">
+        <img src="../../../assets/image/man.png" alt="man image" height="60px" width="60px" />
+      </div>
+      <div class="profile-input-grid">
+        <ng-container *ngIf="!isEdit">
+          <div class="profile-field-item">
+            <span class="profile-field-label">Name</span>
+            <span class="profile-field-value">{{name}}</span>
+          </div>
+          <div class="profile-field-item">
+            <span class="profile-field-label">Username</span>
+            <span class="profile-field-value">{{user_name}}</span>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="isEdit">
+          <div class="profile-field-edit-item">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Name</mat-label>
+              <input matInput type="text" [(ngModel)]="newName">
+            </mat-form-field>
+          </div>
+          <div class="profile-field-edit-item">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Username</mat-label>
+              <input matInput type="text" [(ngModel)]="newUsername">
+            </mat-form-field>
+          </div>
+        </ng-container>
+      </div>
+      <div class="row row-col-3 mains">
+        <div class="col" *ngFor="let line of lines">
+          <p style="text-align: center;font-size: 18px; font-family: cursive; font-weight: bold;">{{ line.content }}</p>
+          <p style="text-align: center;font-size: 22px;">{{ line.text }}</p>
+        </div>
+      </div>
+    </mat-card-content>
+    <div style="display:flex; flex-direction: row; justify-content: space-between;">
+      <mat-card-actions *ngIf="!isEdit">
+        <button mat-raised-button mat-dialog-close color="primary" (click)="onDeleteAccount()">Delete Account</button>
+      </mat-card-actions>
+      <mat-card-actions *ngIf="!isEdit">
+        <button mat-raised-button mat-dialog-close cdkFocusInitial color="primary">Ok</button>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</div>

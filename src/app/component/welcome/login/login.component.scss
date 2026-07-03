@@ -1,0 +1,71 @@
+.page{ min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: auto;
+  align-items: center;
+  padding: 0 16px 64px 16px;
+}
+
+.content {
+  text-align: center;
+  flex-direction: column;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding-top: 64px;
+  margin: 0 20px 16px 20px;
+}
+
+.brand{
+  font-family: inherit;
+  font-weight: 900;
+  color: var(--primary-color);
+  margin: 0 0 8px 0;
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  line-height: 1.08;
+}
+.tagline{
+  font-size: 16px;
+  color: var(--text-muted);
+  margin: 0 auto;
+  max-width: 680px;
+}
+
+.line{
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  margin: 12px auto 20px auto;
+  width: 72%;
+  max-width: 600px;
+  border-radius: 2px;
+}
+
+.login-header{ display:flex; justify-content:center; width: 100%; }
+
+.loginp{
+  font-size: 18px;
+  font-weight: 600;
+  font-family: inherit;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+  margin: 0 0 12px 0;
+  text-align: center;
+  width: 100%;
+  max-width: 480px;
+}
+
+.forms{
+  box-sizing: border-box; 
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  padding: 20px 24px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  max-width: 480px;
+}
+
+.btns{ margin-top: 8px; }
+
+.wait{ transition: .5s; text-align: center; color: var(--text-muted); }
+

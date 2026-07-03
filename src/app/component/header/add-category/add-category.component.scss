@@ -1,0 +1,97 @@
+.add-category-container {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(60, 72, 88, 0.18);
+  padding: 40px 32px;
+  max-width: 480px;
+  margin: 48px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+
+.add-category-container:hover {
+  box-shadow: 0 16px 48px rgba(60, 72, 88, 0.22);
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #6d28d9;
+  margin-bottom: 24px;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+.example-form-field {
+  width: 100%;
+  margin-bottom: 24px;
+  .mat-form-field-wrapper {
+    border-radius: 12px;
+    background: #f3f4f6;
+    box-shadow: 0 2px 8px rgba(60, 72, 88, 0.07);
+    padding: 8px;
+  }
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+
+  > button {
+    border-radius: 12px;
+    background: linear-gradient(90deg, #6d28d9 0%, #f59e42 100%);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 2px 12px rgba(60, 72, 88, 0.10);
+    padding: 12px 36px;
+    font-size: 1.1rem;
+    transition: background 0.2s, box-shadow 0.2s;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  > button:hover {
+    background: linear-gradient(90deg, #f59e42 0%, #6d28d9 100%);
+    box-shadow: 0 6px 24px rgba(60, 72, 88, 0.18);
+  }
+}
+
+.myCard {
+  margin-top: 32px;
+  border-radius: 18px;
+  background: #f9fafb;
+  box-shadow: 0 2px 12px rgba(60, 72, 88, 0.10);
+  padding: 24px;
+}
+
+.btns {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  button {
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6d28d9 0%, #f59e42 100%);
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(60, 72, 88, 0.18);
+    width: 64px;
+    height: 64px;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+  button:hover {
+    background: linear-gradient(135deg, #f59e42 0%, #6d28d9 100%);
+    box-shadow: 0 8px 32px rgba(60, 72, 88, 0.22);
+  }
+}
