@@ -8,9 +8,11 @@ const userRoutes = require('./routes/user');
 const expenseRoutes = require('./routes/expense');
 
 const mongoose = require("mongoose");
-const dbURI = process.env.MONGO_ATLAS_PW
-  ? 'mongodb+srv://root:' + process.env.MONGO_ATLAS_PW + '@cluster0.ywmh36y.mongodb.net/expenseTracker'
-  : 'mongodb://127.0.0.1:27017/expenseTracker';
+const dbURI = process.env.MONGODB_URI || process.env.MONGO_URI || (
+  process.env.MONGO_ATLAS_PW
+    ? 'mongodb+srv://root:' + process.env.MONGO_ATLAS_PW + '@cluster0.ywmh36y.mongodb.net/expenseTracker'
+    : 'mongodb://127.0.0.1:27017/expenseTracker'
+);
 
 mongoose.connect(dbURI)
   .then(() => {
